@@ -1,10 +1,3 @@
-//
-//  SwipeApp.swift
-//  Swipe
-//
-//  Created by Aniket Kumar on 13/11/24.
-//
-
 import SwiftUI
 
 @main
@@ -14,7 +7,8 @@ struct SwipeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                  
         }
     }
 }

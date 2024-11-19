@@ -3,7 +3,7 @@ import SwiftUI
 import Network
 import Foundation
 
-// Add this extension to create the fetch request
+
 extension OfflineProduct {
     static var offlineFetchRequest: NSFetchRequest<OfflineProduct> {
         return NSFetchRequest<OfflineProduct>(entityName: "OfflineProduct")

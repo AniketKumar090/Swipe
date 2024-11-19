@@ -9,7 +9,7 @@ struct CardView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .leading, spacing: 12) {
-               
+                
                 AsyncImage(url: URL(string: product?.image?.isEmpty == true ? "https://via.placeholder.com/150" : product?.image ?? "")) { image in
                     image
                         .resizable()
@@ -27,7 +27,7 @@ struct CardView: View {
                     }
                     .frame(height: 100)
                 }
-
+                
                 VStack(alignment: .leading, spacing: 4) {
                     Text(product?.product_name ?? "Unknown Product")
                         .font(.headline)
@@ -37,18 +37,18 @@ struct CardView: View {
                     
                     Label(product?.product_type ?? "Unknown Type", systemImage: "tag")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.orange)
                     
                     PriceTag(title: "₹", value: "\(String(format: "%.2f", product?.price ?? 0))")
-                    PriceTag(title: "Tax", value: "\(product?.tax.formatted() ?? "0")%")
+                    PriceTag(title: "Tax:", value: "\(product?.tax.formatted() ?? "0")%")
                 }
             }
             .padding()
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
-
-           
+            
+            
             Button(action: {
                 withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
                     toggleFavorite()
@@ -58,7 +58,7 @@ struct CardView: View {
                     .font(.title2)
                     .foregroundColor(product?.isFavorite ?? false ? .red : .gray)
                     .frame(width: 36, height: 36)
-                    .background(Color.gray.opacity(0.1))
+                    .background(product?.isFavorite ?? false ?  Color.orange.opacity(0.5) : Color.gray.opacity(0.1))
                     .clipShape(Circle())
                     .padding(8)
             }
@@ -67,7 +67,6 @@ struct CardView: View {
         .scaleEffect(isPressed ? 0.98 : 1.0)
         .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isPressed)
         .buttonStyle(PlainButtonStyle())
-       
     }
 }
 
@@ -87,7 +86,7 @@ struct PriceTag: View {
                 .foregroundColor(.black)
         }
         .padding(.vertical, 4)
-        .padding(.horizontal, 8)
+        .padding(.horizontal, 4)
         .background(Color.gray.opacity(0.1))
         .cornerRadius(8)
     }

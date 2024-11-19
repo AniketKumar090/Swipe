@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct EnhancedSearchBar: View {
+struct SearchBar: View {
     @Binding var text: String
     @FocusState private var isFocused: Bool
 
@@ -12,11 +12,10 @@ struct EnhancedSearchBar: View {
                 .foregroundColor(.primary)
 
             TextField("Search products...", text: $text)
-                .foregroundStyle(Color.white)
+                .foregroundColor(.primary)
                 .textFieldStyle(.plain)
                 .focused($isFocused)
                 
-
             if !text.isEmpty {
                 Button(action: { text = "" }) {
                     Image(systemName: "xmark.circle.fill")
@@ -27,7 +26,7 @@ struct EnhancedSearchBar: View {
         .padding(12)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color(.gray).opacity(0.5))
+                .fill(Color(.gray).opacity(0.2))
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
         )
     }

@@ -94,7 +94,7 @@ struct Home: View {
             Button(action: refreshData) {
                 Image(systemName: "arrow.clockwise")
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.orange)
                     .rotationEffect(.degrees(isRefreshing ? 360 : 0))
                     .animation(isRefreshing ? .linear(duration: 1).repeatForever(autoreverses: false) : .default, value: isRefreshing)
             }
@@ -103,14 +103,16 @@ struct Home: View {
             Button(action: { showingAddProduct = true }) {
                 Image(systemName: "plus.circle.fill")
                     .font(.system(size: 30))
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.orange)
+                   
+                    
             }
         }
         .padding()
     }
 
     private var searchBarView: some View {
-        EnhancedSearchBar(text: $searchText)
+        SearchBar(text: $searchText)
             .padding()
     }
 
@@ -192,7 +194,7 @@ struct Home: View {
                 }
             }
         )
-        .frame(width: 180,height: 250)
+        .frame(width: 180,height: 240)
     }
 
     // MARK: - Helper Methods
@@ -255,7 +257,7 @@ struct FilterButton: View {
                 .padding(8)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(isSelected ? Color.gray.opacity(0.8) : Color.gray.opacity(0.1))
+                        .fill(isSelected ? Color.orange.opacity(0.8) : Color.gray.opacity(0.1))
                 )
         }
     }
@@ -269,13 +271,13 @@ struct TabButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.subheadline)
-                .foregroundColor(isSelected ? .white : .gray)
+                .font(.headline)
+                .foregroundColor(isSelected ? .orange : .gray)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(
                     Capsule()
-                        .fill(isSelected ? Color.gray.opacity(0.8) : Color.gray.opacity(0.2))
+                        .fill(isSelected ? Color.gray.opacity(0.3) : Color.gray.opacity(0.1))
                 )
         }
     }
