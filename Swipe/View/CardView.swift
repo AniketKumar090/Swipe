@@ -91,6 +91,3 @@ struct PriceTag: View {
         .cornerRadius(8)
     }
 }
-#Preview{CardView {
-    
-}}
