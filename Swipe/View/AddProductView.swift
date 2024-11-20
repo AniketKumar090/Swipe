@@ -160,11 +160,9 @@ struct AddProductView: View {
             imageBase64 = imageData.base64EncodedString()
         }
         
-        // Create form data
         let boundary = "Boundary-\(UUID().uuidString)"
         var body = Data()
         
-        // Add text fields
         let formFields = [
             "product_name": productName,
             "product_type": productType,
@@ -178,7 +176,6 @@ struct AddProductView: View {
             body.append("\(value)\r\n")
         }
         
-        // Add image if available
         if !imageBase64.isEmpty {
             body.append("--\(boundary)\r\n")
             body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n")
@@ -191,7 +188,6 @@ struct AddProductView: View {
         
         body.append("--\(boundary)--\r\n")
         
-        // Create request
         guard let url = URL(string: "https://app.getswipe.in/api/public/add") else {
             handleError("Invalid URL")
             return
@@ -236,11 +232,11 @@ struct AddProductView: View {
         isLoading = false
         alertMessage = message
         showingAlert = true
-        print("Error: \(message)") // For debugging
+        print("Error: \(message)")
     }
 }
 
-// Helper extension for Data
+
 extension Data {
     mutating func append(_ string: String) {
         if let data = string.data(using: .utf8) {
