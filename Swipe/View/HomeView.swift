@@ -70,7 +70,8 @@ struct Home: View {
                 filterView
                 mainContentView
                 tabView
-            }
+            }.background(LinearGradient(gradient: Gradient(colors: [Color.white, Color.orange]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all))
         }
         .sheet(isPresented: $showingAddProduct) {
             AddProductView(onProductAdded: refreshData)
@@ -88,7 +89,7 @@ struct Home: View {
         HStack {
             Text("PRODUCTS")
                 .font(.headline)
-            
+                .foregroundColor(.black)
             Spacer()
             
             Button(action: refreshData) {
@@ -253,11 +254,11 @@ struct FilterButton: View {
         Button(action: action) {
             Text(type)
                 .font(.subheadline)
-                .foregroundColor(isSelected ? .white : .secondary)
+                .foregroundColor(isSelected ? .white : .black)
                 .padding(8)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(isSelected ? Color.orange.opacity(0.8) : Color.gray.opacity(0.1))
+                        .fill(isSelected ? Color.orange.opacity(0.8) : Color.gray.opacity(0.25))
                 )
         }
     }
@@ -272,12 +273,12 @@ struct TabButton: View {
         Button(action: action) {
             Text(title)
                 .font(.headline)
-                .foregroundColor(isSelected ? .orange : .gray)
+                .foregroundColor(isSelected ? .black : .black.opacity(0.5))
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(
                     Capsule()
-                        .fill(isSelected ? Color.gray.opacity(0.3) : Color.gray.opacity(0.1))
+                        .fill(isSelected ? Color.white.opacity(0.75) : Color.gray.opacity(0.25))
                 )
         }
     }

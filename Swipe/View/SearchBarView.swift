@@ -9,17 +9,18 @@ struct SearchBar: View {
         HStack(spacing: 12) {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 18, weight: .medium))
-                .foregroundColor(.primary)
+                .foregroundColor(.black)
 
-            TextField("Search products...", text: $text)
-                .foregroundColor(.primary)
+            TextField("", text: $text,prompt: Text("Search products...").foregroundColor(.gray))
+                .foregroundColor(.black)
                 .textFieldStyle(.plain)
                 .focused($isFocused)
+               
                 
             if !text.isEmpty {
                 Button(action: { text = "" }) {
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.primary)
+                        .foregroundColor(.black)
                 }
             }
         }

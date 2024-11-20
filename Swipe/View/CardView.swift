@@ -44,7 +44,7 @@ struct CardView: View {
                 }
             }
             .padding()
-            .background(Color.white)
+            .background(Color.white.opacity(0.8))
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
             
@@ -91,3 +91,6 @@ struct PriceTag: View {
         .cornerRadius(8)
     }
 }
+#Preview{CardView {
+    
+}}
