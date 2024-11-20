@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct Home: View {
+struct HomeView: View {
     @StateObject var jsonModel = JSonViewModel()
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: ProductEntity.entity(), sortDescriptors: [
@@ -114,7 +114,7 @@ struct Home: View {
 
     private var searchBarView: some View {
         SearchBar(text: $searchText)
-            .padding()
+            .padding(.horizontal)
     }
 
     private var filterView: some View {
@@ -129,6 +129,8 @@ struct Home: View {
                 }
             }
             .padding(.horizontal)
+            .padding(.top,10)
+            .padding(.bottom,10)
         }
     }
     private var mainContentView: some View {
@@ -156,9 +158,7 @@ struct Home: View {
             TabButton(title: "Favorites", isSelected: selectedTab == 1) {
                 selectedTab = 1
             }
-        }
-        .padding(.horizontal)
-        .padding(.top)
+        }.padding()
     }
 
    
@@ -273,12 +273,12 @@ struct TabButton: View {
         Button(action: action) {
             Text(title)
                 .font(.headline)
-                .foregroundColor(isSelected ? .black : .black.opacity(0.5))
+                .foregroundColor(isSelected ? .black : .black)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(
                     Capsule()
-                        .fill(isSelected ? Color.white.opacity(0.75) : Color.gray.opacity(0.25))
+                        .fill(isSelected ? Color.white.opacity(0.75) : Color.gray.opacity(0.75))
                 )
         }
     }
@@ -315,10 +315,10 @@ struct EmptyStateView: View {
             Text(title)
                 .font(.title2)
                 .fontWeight(.semibold)
-
+                .foregroundStyle(.black)
             Text(message)
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundColor(.white)
                 .multilineTextAlignment(.center)
         }
         .padding()
