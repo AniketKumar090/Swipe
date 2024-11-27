@@ -4,7 +4,7 @@ struct AddProductView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var context
     var onProductAdded: () -> Void
-    @StateObject private var productManager = ProductManager.shared
+    @StateObject private var productManager = ProductManager()
     
     @State private var productName = ""
     @State private var productType = ""

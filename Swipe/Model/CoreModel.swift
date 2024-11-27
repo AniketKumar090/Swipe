@@ -12,7 +12,7 @@ extension OfflineProduct {
 
 // MARK: - Product Manager
 class ProductManager: ObservableObject {
-    static let shared = ProductManager()
+    //static let shared = ProductManager()
     private let networkMonitor = NetworkMonitor()
     @Published var isOnline = true
     

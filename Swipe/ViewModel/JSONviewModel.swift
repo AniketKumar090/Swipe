@@ -57,38 +57,4 @@ class JSonViewModel: ObservableObject {
             }
         }.resume()
     }
-    
-    private func saveProductsToCoreData(products: [ProductViewModel], context: NSManagedObjectContext) {
-     
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ProductEntity")
-        fetchRequest.predicate = NSPredicate(format: "isFavorite == NO")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            try context.execute(deleteRequest)
-            
-          
-            for product in products {
-               
-                let existingFetchRequest: NSFetchRequest<ProductEntity> = ProductEntity.fetchRequest()
-                existingFetchRequest.predicate = NSPredicate(format: "product_name == %@", product.product_name)
-                
-                let existingProducts = try context.fetch(existingFetchRequest)
-                
-                if existingProducts.isEmpty {
-                    let entity = ProductEntity(context: context)
-                    entity.product_name = product.product_name
-                    entity.product_type = product.product_type
-                    entity.price = product.price
-                    entity.tax = product.tax
-                    entity.image = product.image
-                    entity.isFavorite = false
-                }
-            }
-            
-            try context.save()
-        } catch {
-            print("Error managing Core Data: \(error)")
-        }
-    }
 }
