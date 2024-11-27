@@ -39,7 +39,6 @@
 		884D95CF2CE4F88600B63AD8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		884D95D22CE4F88600B63AD8 /* Swipe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swipe.xcdatamodel; sourceTree = "<group>"; };
 		888A14B02CEE6DEE00DB056D /* Screenshot 2024-11-21 at 12.49.19 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2024-11-21 at 12.49.19 AM.png"; sourceTree = "<group>"; };
-		889F36E32CF05AD10023BCE2 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		88AC6EE52CE68FC400EEC1DA /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		88AC6EE72CE69C1900EEC1DA /* CoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +80,6 @@
 			children = (
 				884D95D12CE4F88600B63AD8 /* Swipe.xcdatamodeld */,
 				88AC6EE72CE69C1900EEC1DA /* CoreModel.swift */,
-				889F36E32CF05AD10023BCE2 /* MyPlayground.playground */,
 			);
 			path = Model;
 			sourceTree = "<group>";
